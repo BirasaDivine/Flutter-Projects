@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// PopupMenuButton demo using an enum and updating state on selection.
+/// Flutter PopupMenuButton demo that uses an enum and updates a `selectedMenu` field.
 
 enum SampleItem { itemOne, itemTwo, itemThree }
 
@@ -13,6 +13,7 @@ class PopupMenuApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'PopupMenuButton Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: const PopupMenuExample(),
     );
@@ -27,10 +28,10 @@ class PopupMenuExample extends StatefulWidget {
 }
 
 class _PopupMenuExampleState extends State<PopupMenuExample> {
-  // State field to store which item is selected
+  // State field that stores the currently selected menu item
   SampleItem? selectedMenu;
 
-  // Helper method to convert enum value to readable text
+  // Helper function to map enum values to readable labels
   String _labelFor(SampleItem? item) {
     switch (item) {
       case SampleItem.itemOne:
@@ -57,7 +58,7 @@ class _PopupMenuExampleState extends State<PopupMenuExample> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Text section
+                // Text area showing instructions and selected item
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,17 +76,15 @@ class _PopupMenuExampleState extends State<PopupMenuExample> {
                 ),
                 const SizedBox(width: 20),
 
-                // PopupMenuButton section
+                // PopupMenuButton with 3 menu options
                 PopupMenuButton<SampleItem>(
                   icon: const Icon(Icons.more_vert),
-                  // When a menu item is selected, update state & show message
                   onSelected: (SampleItem item) {
                     setState(() => selectedMenu = item);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Selected ${_labelFor(item)}')),
                     );
                   },
-                  // Build the list of menu items
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<SampleItem>>[
                         const PopupMenuItem(

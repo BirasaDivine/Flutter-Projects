@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// PopupMenuButton demo that uses an enum and updates a `selectedMenu` field.
+/// PopupMenuButton demo using an enum and updating state on selection.
 
 enum SampleItem { itemOne, itemTwo, itemThree }
 
@@ -27,10 +27,10 @@ class PopupMenuExample extends StatefulWidget {
 }
 
 class _PopupMenuExampleState extends State<PopupMenuExample> {
-  // State field to store the selected menu item
+  // State field to store which item is selected
   SampleItem? selectedMenu;
 
-  // Convert enum to readable string
+  // Helper method to convert enum value to readable text
   String _labelFor(SampleItem? item) {
     switch (item) {
       case SampleItem.itemOne:
@@ -57,6 +57,7 @@ class _PopupMenuExampleState extends State<PopupMenuExample> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // Text section
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,14 +74,18 @@ class _PopupMenuExampleState extends State<PopupMenuExample> {
                   ],
                 ),
                 const SizedBox(width: 20),
+
+                // PopupMenuButton section
                 PopupMenuButton<SampleItem>(
                   icon: const Icon(Icons.more_vert),
+                  // When a menu item is selected, update state & show message
                   onSelected: (SampleItem item) {
                     setState(() => selectedMenu = item);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Selected ${_labelFor(item)}')),
                     );
                   },
+                  // Build the list of menu items
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<SampleItem>>[
                         const PopupMenuItem(

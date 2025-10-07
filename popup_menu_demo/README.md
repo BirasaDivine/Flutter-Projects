@@ -1,16 +1,52 @@
-# popup_menu_demo
+## PopupMenuButton Widget Demo
 
-A new Flutter project.
+A Flutter demo showing how to use the PopupMenuButton widget to display a menu of selectable options and handle user interactions dynamically.
 
-## Getting Started
+The PopupMenuButton acts like an interactive overflow menu. Without it, adding contextual actions (like Edit, Delete, or Share) for items in your UI would require custom buttons and extra code.
 
-This project is a starting point for a Flutter application.
+## The Resulting UI
 
-A few resources to get you started if this is your first Flutter project:
+PopupMenuButton Code Example
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This code creates a simple interactive menu that updates the selected item and shows a SnackBar message when a user makes a selection.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Run Instructions
+
+Clone this repository:
+
+git clone <https://github.com/BirasaDivine/Flutter-Projects>
+
+## Navigate into the project folder:
+
+cd popup_menu_demo
+
+## Install dependencies:
+
+flutter pub get
+
+## Run the app:
+
+flutter run
+
+## Key PopupMenuButton Attributes
+
+This demo showcases three important attributes of the PopupMenuButton widget:
+
+icon: Icon(Icons.more_vert) – Changes the default trigger button icon for the menu.
+
+onSelected: (SampleItem item) {...} – Handles actions when a user selects a menu item, such as updating the UI and showing feedback with a SnackBar.
+
+itemBuilder – Defines the menu items that appear when the user taps the button.
+
+## Real-World Use Cases
+
+App bars: For overflow menus with global app actions.
+
+Cards or lists: For item-specific actions like edit, delete, or share.
+
+Profile or settings pages: For user-related options.
+
+## Source
+
+This demo is adapted from the official Flutter documentation:
+PopupMenuButton class – Flutter Docs

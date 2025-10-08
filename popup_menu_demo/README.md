@@ -2,11 +2,12 @@
 
 A Flutter demo showing how to use the PopupMenuButton widget to display a menu of selectable options and handle user interactions dynamically.
 
-The PopupMenuButton acts like an interactive overflow menu. Without it, adding contextual actions (like Edit, Delete, or Share) for items in your UI would require custom buttons and extra code.
-
 ## The Resulting UI
 
+![alt text](<popup button.png>)
+
 PopupMenuButton Code Example
+![alt text](<popup code.png>)
 
 This code creates a simple interactive menu that updates the selected item and shows a SnackBar message when a user makes a selection.
 
@@ -14,7 +15,7 @@ This code creates a simple interactive menu that updates the selected item and s
 
 Clone this repository:
 
-git clone <https://github.com/BirasaDivine/Flutter-Projects>
+git clone <https://github.com/BirasaDivine/Flutter-Projects/tree/feature/popupmenu-demo/popup_menu_demo>
 
 ## Navigate into the project folder:
 
